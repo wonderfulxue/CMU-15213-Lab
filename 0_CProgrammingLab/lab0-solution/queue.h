@@ -16,22 +16,24 @@
 /************** Data structure declarations ****************/
 
 /* Linked list element (You shouldn't need to change this) */
-typedef struct ELE {
-    /* Pointer to array holding string.
+typedef struct ELE
+{
+  /* Pointer to array holding string.
        This array needs to be explicitly allocated and freed */
-    char *value;
-    struct ELE *next;
+  char *value;
+  struct ELE *next;
 } list_ele_t;
 
 /* Queue structure */
-typedef struct {
-    list_ele_t *head;  /* Linked list of elements */
-    list_ele_t *tail;  // The last element in the list
-    int size;
-    /*
+typedef struct
+{
+  list_ele_t *head; /* Linked list of elements */
+                    /*
       You will need to add more fields to this structure
       to efficiently implement q_size and q_insert_tail
     */
+  list_ele_t *tail;
+  size_t size;
 } queue_t;
 
 /************** Operations on queue ************************/
@@ -90,3 +92,9 @@ int q_size(queue_t *q);
   It should rearrange the existing ones.
  */
 void q_reverse(queue_t *q);
+
+/*
+  Helper function
+  Get the length of the char string
+*/
+size_t string_len(char *s);
